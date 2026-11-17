@@ -3,91 +3,186 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sanfic Store — маркетплейс цифровых товаров</title>
+<title>Sanfic Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#071b40;--navy2:#0c2b61;--bg:#ffffff;--soft:#f2f6fc;--text:#0e1b33;--muted:#5d6b86;--line:#dfe7f3;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-*{box-sizing:border-box;margin:0}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
-.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-header{background:var(--navy);color:#fff;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
-.logo{font-weight:800;font-size:20px;letter-spacing:.3px}
-.logo span{color:#7fa6ee}
-nav{display:flex;gap:18px;font-size:14px}
-nav a{color:#dbe6ff;text-decoration:none}
-.btn{background:#fff;color:var(--navy);border:0;border-radius:10px;padding:9px 16px;font-weight:700;cursor:pointer;font-size:14px}
-.btn.dark{background:var(--navy);color:#fff}
-.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:48px 0 56px}
-.hero h1{font-size:clamp(26px,5vw,42px);max-width:640px;line-height:1.15}
-.hero p{margin:12px 0 22px;color:#cddcff;max-width:520px}
-.search{display:flex;gap:8px;max-width:520px}
-.search input{flex:1;border:0;border-radius:10px;padding:12px 14px;font-size:15px;min-width:0}
-.cats{display:flex;gap:8px;overflow-x:auto;padding:18px 0}
-.chip{white-space:nowrap;border:1px solid var(--line);background:#fff;color:var(--navy);padding:8px 14px;border-radius:999px;font-weight:600;font-size:14px;cursor:pointer}
-.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
-h2{font-size:22px;color:var(--navy);margin:8px 0 14px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
-.card{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff;display:flex;flex-direction:column;gap:8px}
-.ico{width:46px;height:46px;border-radius:12px;background:var(--soft);display:grid;place-items:center;font-size:24px}
-.card h3{font-size:16px}
-.meta{font-size:13px;color:var(--muted)}
-.row{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
-.price{font-weight:800;color:var(--navy);font-size:18px}
-.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:36px 0}
-.feat div{background:var(--soft);border-radius:14px;padding:18px}
-.feat b{color:var(--navy);display:block;margin-bottom:4px}
-footer{background:var(--navy);color:#cddcff;padding:26px 0;font-size:14px;margin-top:30px}
-@media(max-width:640px){nav{display:none}}
+:root{
+  color-scheme:dark;
+  --navy:#2A55F0; --navy2:#4570FF; --blue:#5B84FF; --bg:#040B24; --soft:#0A1741;
+  --text:#F1F4FC; --muted:#9FB0DC; --line:#1A2D66; --on-navy:#FFFFFF; --on-navy-muted:#B4C2E6;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.01em}
+.logo i{width:30px;height:30px;border-radius:9px;background:var(--navy);display:grid;place-items:center;color:#fff;font-style:normal;font-size:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;font:inherit;font-weight:800;border-radius:12px;padding:11px 18px;background:var(--navy);color:#fff;transition:transform .12s,background .12s}
+.btn:hover{background:var(--navy2)}.btn:active{transform:scale(.97)}
+.btn.light{background:#fff;color:#07163A}.btn.light:hover{background:#E8EEFF}
+.hero{background:linear-gradient(180deg,#0B1F5C 0%,#040B24 100%);color:var(--on-navy);padding:34px 0 38px;border-bottom:1px solid var(--line)}
+.hero .grid{display:grid;gap:26px;grid-template-columns:1fr}
+h1{font-size:clamp(30px,7vw,48px);line-height:1.08;letter-spacing:-.025em;margin:0 0 12px;font-weight:800}
+.hero p{color:var(--on-navy-muted);margin:0 0 20px;max-width:46ch}
+.perks{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0;padding:0;list-style:none;color:var(--on-navy-muted);font-size:14px;font-weight:600}
+.perks li::before{content:"✓ ";color:#7FA0FF}
+.calc{background:var(--soft);color:var(--text);border:1.5px solid var(--line);border-radius:20px;padding:20px}
+.calc h2{margin:0 0 4px;font-size:18px}
+.calc small{color:var(--muted)}
+.amts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+.amts button{font:inherit;font-weight:800;padding:12px 4px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--text);cursor:pointer}
+.amts button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.total{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+.total b{font-size:28px;letter-spacing:-.02em}
+.calc .btn{width:100%}
+nav.tabs{display:flex;gap:8px;overflow-x:auto;padding:22px 0 6px;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;font:inherit;font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--text);cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.list{display:grid;gap:12px;padding:12px 0 8px;grid-template-columns:1fr}
+.card{border:1.5px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px;background:var(--soft)}
+.card .top{display:flex;gap:12px;align-items:center}
+.ic{flex:none;width:46px;height:46px;border-radius:14px;background:var(--bg);display:grid;place-items:center;font-size:23px}
+.card h3{margin:0;font-size:17px;line-height:1.25}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.card .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:4px}
+.price{font-weight:800;font-size:18px}
+.price span{font-size:13px;color:var(--muted);font-weight:600}
+.card .btn{padding:9px 16px;font-size:14px}
+.how{background:var(--soft);margin-top:34px;padding:34px 0}
+.how h2,.contacts h2{margin:0 0 16px;font-size:24px;letter-spacing:-.015em}
+.steps{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.steps li{background:var(--bg);border-radius:16px;padding:16px;border:1px solid var(--line)}
+.steps b{display:block;margin-bottom:2px}
+.steps span{color:var(--muted);font-size:14px}
+.contacts{padding:34px 0 30px}
+.contacts .btns{display:flex;flex-wrap:wrap;gap:10px}
+footer{border-top:1px solid var(--line);padding:18px 0 26px;color:var(--muted);font-size:13px}
+@media(min-width:760px){
+  .hero{padding:56px 0}
+  .hero .grid{grid-template-columns:1.15fr .85fr;align-items:center;gap:44px}
+  .list{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:repeat(3,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<header><div class="wrap">
-  <div class="logo">Sanfic<span> Store</span></div>
-  <nav><a href="#catalog">Каталог</a><a href="#why">Гарантии</a><a href="#help">Поддержка</a></nav>
-  <button class="btn">Войти</button>
-</div></header>
-
-<section class="hero"><div class="wrap">
-  <h1>Покупайте и продавайте цифровые товары безопасно</h1>
-  <p>Игровые аккаунты, донат, подписки и премиум-сервисы. Оплата защищена сделкой через Sanfic Store.</p>
-  <div class="search"><input id="q" placeholder="Найти игру или сервис…"><button class="btn" onclick="render()">Найти</button></div>
-</div></section>
-
-<main class="wrap" id="catalog">
-  <div class="cats" id="cats"></div>
-  <h2>Популярные предложения</h2>
-  <div class="grid" id="grid"></div>
-
-  <div class="feat" id="why">
-    <div><b>🔒 Безопасная сделка</b>Деньги у продавца только после подтверждения покупки.</div>
-    <div><b>⚡ Быстрая выдача</b>Большинство товаров приходят за пару минут.</div>
-    <div><b>💬 Поддержка 24/7</b>Решаем споры и помогаем в чате.</div>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="Sanfic Store"><i>★</i>Sanfic Store</a>
+    <a class="btn" href="https://t.me/sanfic_5" target="_blank" rel="noopener">Наш канал</a>
   </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <h1>Sanfic Store: покупайте всё и в любое время</h1>
+      <p>Звёзды Telegram, Premium, игровые аккаунты, бусты и NFT. Цены в сумах, оплата и выдача через админов.</p>
+      <ul class="perks">
+        <li>Быстрая выдача</li>
+        <li>Честные сделки</li>
+        <li>Поддержка в Telegram</li>
+      </ul>
+    </div>
+    <div class="calc" id="calc">
+      <h2>Купить звёзды Telegram</h2>
+      <small>Выберите количество, цена посчитается сама</small>
+      <div class="amts" id="amts"></div>
+      <div class="total"><span>К оплате</span><b id="sum">0 сум</b></div>
+      <a class="btn" id="buyStars" href="#" target="_blank" rel="noopener">Заказать звёзды</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="shop">
+  <nav class="tabs" id="tabs" aria-label="Категории"></nav>
+  <div class="list" id="list"></div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <h2>Как купить</h2>
+    <ol class="steps">
+      <li><b>Выберите товар</b><span>Найдите нужное в каталоге или посчитайте звёзды в калькуляторе.</span></li>
+      <li><b>Напишите админу</b><span>Кнопка «Купить» откроет чат с готовым сообщением.</span></li>
+      <li><b>Оплатите и получите</b><span>Админ подтвердит оплату и выдаст товар.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="contacts wrap" id="contacts">
+  <h2>Связаться с нами</h2>
+  <div class="btns">
+    <a class="btn" href="https://t.me/sanfic_4" target="_blank" rel="noopener">Админ @sanfic_4</a>
+    <a class="btn" href="https://t.me/sanfic_3" target="_blank" rel="noopener">Админ @sanfic_3</a>
+    <a class="btn" style="background:var(--soft);color:var(--text)" href="https://t.me/sanfic_5" target="_blank" rel="noopener">Канал @sanfic_5</a>
+  </div>
+</section>
 </main>
 
-<footer id="help"><div class="wrap">© 2026 Sanfic Store · Правила · Конфиденциальность · support@sanfic.store</div></footer>
+<footer><div class="wrap">© 2026 Sanfic Store. Все цены указаны в узбекских сумах.</div></footer>
 
 <script>
-const items=[
- {n:"Telegram Premium 12 мес.",c:"Подписки",i:"✈️",p:375000,s:"PremShop"},
- {n:"Spotify Premium 3 мес.",c:"Подписки",i:"🎧",p:105000,s:"MusicPro"},
- {n:"Discord Nitro 1 мес.",c:"Подписки",i:"💬",p:89000,s:"NitroKing"},
- {n:"Genshin Impact — 6480 кристаллов",c:"Донат",i:"💎",p:780000,s:"GameHub"},
- {n:"Roblox — 1000 Robux",c:"Донат",i:"🧱",p:119000,s:"RobuxPlus"},
- {n:"Аккаунт Steam с играми",c:"Аккаунты",i:"🎮",p:180000,s:"SteamMan"},
- {n:"Brawl Stars — Brawl Pass",c:"Донат",i:"⭐",p:68000,s:"BSdealer"},
- {n:"ChatGPT Plus 1 мес.",c:"Подписки",i:"🤖",p:285000,s:"AIStore"}
-];
-const cats=["Все","Подписки","Донат","Аккаунты"];let cur="Все";
-function render(){
- document.getElementById("cats").innerHTML=cats.map(c=>`<button class="chip ${c===cur?'on':''}" onclick="cur='${c}';render()">${c}</button>`).join("");
- const q=document.getElementById("q").value.toLowerCase();
- const list=items.filter(x=>(cur==="Все"||x.c===cur)&&x.n.toLowerCase().includes(q));
- document.getElementById("grid").innerHTML=list.map(x=>`<div class="card"><div class="ico">${x.i}</div><h3>${x.n}</h3><div class="meta">Продавец: ${x.s}</div><div class="row"><span class="price">${x.p.toLocaleString('ru-RU')} so'm</span><button class="btn dark">Купить</button></div></div>`).join("")||"<p class='meta'>Ничего не найдено</p>";
-}
-document.getElementById("q").addEventListener("input",render);
-render();
+(function(){
+  var ADMIN='sanfic_4';
+  var STARS=[[100,24000],[200,48000],[250,60000],[500,120000],[750,180000],[1000,250000]];
+  var PRODUCTS=[
+    {c:'Звёзды',i:'⭐',t:'Telegram Stars',d:'От 100 звёзд. Большие суммы по запросу.',p:'от 24 000',pu:'сум'},
+    {c:'Premium',i:'💎',t:'Telegram Premium, 1 месяц',d:'Подписка на ваш аккаунт.',p:'Цену уточняйте'},
+    {c:'Аккаунты',i:'🎮',t:'Аккаунты Brawl Stars',d:'Кубки, бойцы, праймы. Есть аккаунты из топ-200 Узбекистана.',p:'По запросу'},
+    {c:'Аккаунты',i:'✈️',t:'Telegram-аккаунты',d:'Случайные номера.',p:'25 000',pu:'сум'},
+    {c:'Бусты',i:'🔫',t:'Буст в Standoff 2',d:'Поднимем ранг, например с Silver до Ranger.',p:'По запросу'},
+    {c:'NFT и подарки',i:'🧸',t:'NFT',d:'Большой выбор, доступные цены.',p:'от 100 000',pu:'сум'},
+    {c:'NFT и подарки',i:'🎃',t:'Эксклюзивные подарки',d:'Например, Хэллоуинский мишка.',p:'По запросу'}
+  ];
+  var CATS=['Все','Звёзды','Premium','Аккаунты','Бусты','NFT и подарки'];
+  function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00A0')}
+  function link(text){return 'https://t.me/'+ADMIN+'?text='+encodeURIComponent(text)}
+
+  var sel=2,amts=document.getElementById('amts'),sum=document.getElementById('sum'),buy=document.getElementById('buyStars');
+  function drawStars(){
+    amts.innerHTML='';
+    STARS.forEach(function(s,i){
+      var b=document.createElement('button');b.type='button';b.textContent='⭐ '+s[0];
+      b.setAttribute('aria-pressed',i===sel);
+      b.onclick=function(){sel=i;drawStars()};
+      amts.appendChild(b);
+    });
+    sum.textContent=fmt(STARS[sel][1])+' сум';
+    buy.href=link('Здравствуйте! Хочу купить '+STARS[sel][0]+' звёзд за '+fmt(STARS[sel][1])+' сум (Sanfic Store).');
+  }
+
+  var cat='Все',tabs=document.getElementById('tabs'),list=document.getElementById('list');
+  function drawTabs(){
+    tabs.innerHTML='';
+    CATS.forEach(function(c){
+      var b=document.createElement('button');b.type='button';b.textContent=c;
+      b.setAttribute('aria-pressed',c===cat);
+      b.onclick=function(){cat=c;drawTabs();drawList()};
+      tabs.appendChild(b);
+    });
+  }
+  function drawList(){
+    list.innerHTML='';
+    PRODUCTS.filter(function(p){return cat==='Все'||p.c===cat}).forEach(function(p){
+      var d=document.createElement('article');d.className='card';
+      var price=p.pu?'<span class="price">'+p.p+' <span>'+p.pu+'</span></span>':'<span class="price" style="font-size:15px">'+p.p+'</span>';
+      d.innerHTML='<div class="top"><div class="ic" aria-hidden="true">'+p.i+'</div><h3>'+p.t+'</h3></div><p>'+p.d+'</p><div class="row">'+price+'<a class="btn" target="_blank" rel="noopener" href="'+link('Здравствуйте! Интересует: '+p.t+' (Sanfic Store).')+'">Купить</a></div>';
+      list.appendChild(d);
+    });
+  }
+  drawStars();drawTabs();drawList();
+})();
 </script>
 </body>
 </html>
